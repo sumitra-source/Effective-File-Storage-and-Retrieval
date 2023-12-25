@@ -1,0 +1,98 @@
+Coding Assignment 2
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due October 25 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “2_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “FL_ca2.cpp” where F is the first initial of your first name and L is the first initial of your last name. It must be in .cpp format, otherwise 10% will be deducted.
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Rubric is provided at the end.
+
+Purpose
+This assignment will test your knowledge on how to implement a Divide and Conquer problem. A Divide and Conquer algorithm is an approach that divides a problem into smaller subproblems; these subproblems are further solved recursively. This will be the last coding assignment that will leverage algorithms mentioned in class. Future coding assignments will be about algorithms not mentioned. :) 
+
+Program
+We reviewed the Matrix multiplication problem in Lecture 9. You will code this problem using the Divide and Conquer approach and other approaches. You are expected to program a solution to multiplication using classical multiplication approach, multiplication using divide and conquer with recursion (referenced as recursion approach), and Strassen’s matrix multiplication approach. 
+
+This is an example of how your interface would look like: 
+
+[A] = mm2(X, Y, N, T, P)
+
+Where: 
+* N is the integer size of the input matrices (NxN)
+* T is the integer value where ‘0’ will only include even numbers in X and Y, type ‘1’ will only include odd numbers in X and Y and type ‘2’ will include both odd and even numbers in X and Y (half odd and half even if possible) 
+* X is the input matrix of size NxN
+* Y is the input matrix of size NxN
+* P is the integer value where ‘0’ is the classical approach, and ‘1’ is the recursion approach, ‘2’ is Strassen’s approach
+* A is the resultant matrix of size NxN 
+
+Example output:
+>> “Using Strassen’s Approach”
+>>
+>> Matrix A
+>> 1 2 3
+>> 4 5 6
+>> 7 8 9  
+>>
+>> X 
+>> 
+Matrix B
+>> 1 2 3
+>> 4 5 6
+>> 7 8 9  
+>> 
+>> =
+>>
+>> Matrix R
+>> 30 36 42
+>> 66 81 96
+>> 102 126 150
+
+You may use other functions that will be called in your mm2 function if it helps modularize your code. 
+
+If you choose to do Coppersmith-Winograd approach for extra credit, you can get either the extra credit via report and/or via the code. For the code, I expect to see properly cited sourced of what you used to help with your coding with proper citation. I emphasize proper citation. If you present a list of references and they’re not cited to a particular part of code, then it does not count, and you will not get extra credit. Also, the other 3 approaches must all work correctly first before getting the extra credit. For the report, you must summarize the approach in 2.4 using your own words. You can leverage equations and figures if it helps with citations. It is subjected to the same requirements in Report-2 and must include all requirements. Also, getting the extra credit in the report is not dependent on any other parts of the report, except the experimental design (dependent on the code working). 
+
+For Strassen’s approach, we learned that it needs 10 submatrices (S), 7 products of the submatrices (P), and 4 resultant submatrices (C). Instead of S, P, and C, they should use the following letters:
+submatrices – Determine if we are in the fall or spring semester. Count how many characters there are in either ‘fall’ or ‘spring’ and add it to each of the digits in the current year assuming a 4-digit year. Then, take that number and do modulus 26. That number corresponds to a letter in the alphabet, use that letter to represent your submatrices. 
+Products of submatrices – Using the date this assignment is due, with a 2-digit month, 2-digit day, and 4-digit year, add all the digits. Then, take the number and do modulus 26. That number corresponds to a letter in the alphabet, use that letter to represent your product of submatrices. 
+Resultant submatrices - Using the date we learned about matrix multiplication, assuming a 2-digit month, 2-digit day, and 4-digit year, add all the digits. Then take the number and do modulus 26. That number corresponds to a letter in the alphabet, use that letter to represent your resultant submatrices.
+Experiments
+You will perform experiments for different matrix sizes where each matrix is NxN. Test your algorithms with N=2,4,8,16,32,64,128, 256, and up to the largest size of N that your computer can handle. How does this affect storage space and computational speed? Support with graphs.
+
+You will perform experiments with the same list of N, while testing to see if T has an impact on computational speed. Support with graphs. 
+
+You will also perform experiments to see which algorithm performs the best. I’ll let you to decide which variables or approach to use to demonstrate this. 
+
+Report
+
+After you have completed the experiments, write a report about
+
+1. The goal of the assignment. Describe what a Divide and Conquer algorithm is and how does the classical approach, and recursion approach differ from Strassen’s approach (and Coppersmith and Winograd if you choose the extra credit). Leverage equations, or graphics to support your discussion.  Include in your answer the time complexity for each approaches using Master Method. 
+2. A high-level overview of your program. Provide pseudocode (not code) of the different approaches and discuss the inputs and outputs and computationally what is happening. (This includes Coppersmith and Winograd if you choose to this for extra credit). What is the “divide” and “conquer” idea in each of the approaches? You don’t have to include screenshots of the code. I should be able to look at you .cpp file and this report side by side and follow it. Detail your computing environment, e.g., computer model, OS, hardware/software info, processor model and speed, memory size, etc.
+3. Discuss your experiment design. How will you set up your testing variables to answer each experiment. What was the final range of N’s you were able to identify? What about ensuring that the matrices had odd, or even, or both odd and even values? What about how you’ll determine which algorithm/approach is efficient? Do this for all your coded approaches. Remember, this is different and should not include results. Just the “how” will you do it. 
+4. Results. This will be the bulk of your points, so make sure it is effective in communicating and answering the expectations. Leverage tables, figures, etc. If you’re doing extra credit, Coppersmith and Winograd are a part of the discussion.  
+5. Conclusion. What disadvantages or advantages does Divide and Conquer algorithm have that causes your program to do or not perform optimally?  Describe the constraints of your work. What would be some deciding factors that could help your program perform better, and why do you think so. 
+
+
+Rubric
+Code
+ 210.50Modularity script runs without errorThe script does not run without errorsCoding Practicesscript contains a 4-line header where the first line is your full name, the second line is the class name, the third line is the assignment name, and the fourth line contains a statement whether you coded Coppersmith-Winegrad or notIt does not contain all the elements I requestedCoding Standardsscript has effective, descriptive comments that allows full comprehension of the programThe script does not have effective, descriptive comments that allows full comprehension of the programCorrectnessClassical, recursion, and Strassen are fully correctOnly two of the approaches are coded correctlyOnly one of the approaches are coded correctlyNone of the approaches are coded correctlyAdvanced Knowledge
+(Extra Credit)Code the Coppersmith-Winegrad approach, it is correct with citations
+1 point deduction if the function is incorrectly named
+1 point deduction if the .cpp file is incorrectly named
+
+
+
+
+
+
+
+
+
+Report
+ 210.50Completion The report has all required sections and discussion points. The report has half to almost all required sections and discussion points. The report has less than half of the required sections and discussion pointsClarity of CommunicationThe report demonstrates the full comprehension of the divide and conquer method and how to analyze the results. The report demonstrates the moderate comprehension of the divide and conquer method and how to conduct an experiment design The report demonstrates little to no comprehension of the divide and conquer method and little to no comprehension on experiment designsVisual QualityThe report is visually appealing, and it is clear to find all sections and discussion points. The report is somewhat visually appealing, and it is sometimes unclear in finding the discussion points. The report is not appealing and has no section headers or indicatorsFigures and TablesAll figures and tables are neatly presented with captions and numberingHalf to almost all figures and tables are neatly presented with captions and numberingLess than half of the figures and tables are not properly presentedResult InterpretationPresents a full correct interpretation of the results. Able to describe and synthesize the results 
+Somewhat a full correct interpretation of the results. Able to describe but not synthesize the results 
+An attempt is given but it is not correct.No description or synthesis of the results are givenAdvanced Discussion (Extra Credit)Explains Coppersmith-Winograd in section 2.3, and does experiments with itExplains Coppersmith-Winograd in section 2.3, but does not do experiments with it
+1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect
+
+

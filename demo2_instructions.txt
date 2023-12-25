@@ -1,0 +1,31 @@
+Demo 2 
+Overview
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due September 28 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “2_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “LastName_FirstName_2.m” It must be in .m format, otherwise 10% will be deducted. You do not need to submit a folder of your images. They should be used in your report.
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Expectations
+Use a technique mentioned in class to segment the images. It can be any technique (mentioned in class only), but do not do any image pre-processing, such as cropping. Do not exclude any images in your analysis. You must be able to compute the following phenotypes: height, width, perimeter, and aspect ratio. If your chosen segmentation technique doesn’t fully allow you to gather some values for the phenotypes, that is okay, just make sure to elaborate why it happened. You may use the MATLAB function regionprops() to compute the phenotypes. You only need to perform this demo on 1 plant and 1 side view. I will assign the plant to you in class. If you want to do both side views, it can be for extra credit (+2) but the segmentation technique and analysis must be correct. 
+
+Report
+Include in your report: 
+1. A summary of the objectives of the demo. Meaning, what were the expected learning objectives. I’m not looking for technical (what did you do), I’m looking for what did you learn? 
+2. Explain the technique you used, why did you use it, and the pros and cons of the technique you chose.
+3. Explain the dataset’s features, image size, plant characteristics, and include images.
+4. Describe and synthesize the results for height and width. I expect the width and height to be in the same graph. Insert any graphs and images to help with your writing. Make sure your graphs are properly labeled with title, axis labels, and legend. I expect one paragraph for the description, and another paragraph for syntheses. Hint: MATLAB has a rectangle function that allows you to draw a bounding box on an image. 
+5. Describe and synthesize the results for perimeter. Insert any graphs and images to help with your writing. Make sure your graphs are properly labeled with title, axis labels, and legend. I expect one paragraph for the description, and another paragraph for syntheses.
+6. Describe and synthesize the results for aspect ratio. Insert any graphs and images to help with your writing. Make sure your graphs are properly labeled with title, axis labels, and legend. I expect one paragraph for the description, and another paragraph for syntheses.
+7. Explain what as well you found easy or hard about the demo. Again, an opportunity to let me know what you’re struggling with.
+
+Describing your results means explain what is seen in the graph/chart/image without thinking too critically about it.
+Synthesizing your results means a full comprehension of the graph/chart/image beyond what we see in numbers. 
+Example: Describing is ‘I see your heart is beating 160 times a minute.’ Synthesizing is ‘It means you need to go the emergency room. It is beating too fast.’
+
+Code
+1. The code must be run independently outside the dataset’s main folder. 
+2. It must be able to run in a single click with no errors. Warnings are fine. Make sure your line of code that reads the images is dynamic.
+3. It must contain a header with the assignment name, your name, and your running system (Mac/Linux/Windows). 
+4. It must contain descriptive comments. 
+

@@ -1,0 +1,100 @@
+  Coding Assignment 5
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due November 29 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations  is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “5_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “FL_helena5.cpp” and “FL_people5.cpp” It must be in .cpp format, otherwise 10% will be deducted. F is the first initial of your first name, and L is the first initial of your last name.
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Purpose
+This assignment will test your knowledge on how graph algorithms, and low-level memory manipulation skills. 
+
+Program
+You will code a program that will find the shortest path between Helena Bonham Carter and any another actor. Actors are considered linked if they have starred in a well-known movie together. Therefore, If I were to give another actor’s name, like Johnny Depp, you should return the degree of separation of the actor that connect up to Helena Bonham  Carter.  In this scenario, they have directly starred in movies together, so their degree is 1. 
+
+You will need to download data from IMDB. It is available as text files at http://imdb.com/interfaces#plain. You will need to download the name.basics.tsv.gz and the title.basics.tsv.gz files which will provide the information needed to connect actors with movies. You should only consider the Primary Title, and movie. You can also use the IMDB class and implement any graph you think would work. Here’s instructions on how to read and import the .tsv files as a preview: https://banksouthern.com/wp-content/uploads/2013/02/OPENING_AN_EXPORTED_TSV_FILE.pdf . To extract the data, you’ll need to implement a function that can parse the .tsv and save them as different worksheets in a workbook. Remove any unnecessary columns.   
+
+Your program ‘helena5.cpp’ should take in as input ‘S’ string which is an actor’s name. Your program should output the number of degrees of separation that the actor’s name has from Helena Bonham Carter. The higher the number, the greater the separation from Helena Bonham Carter is. If ‘S’ is Helena Bonham Carter, it should output the number 0. If actors who have worked directly with Helena Bonham Carter, such as Johnny Depp, should have a number of 1. The output should also include the name of the actor’s name that is input, what degree is their number, and if it’s 1, what movie did they feature in together, if it’s 2 or more, then print out the chain of movies of how they are related.  Have a case for 0.  
+
+This is an example of how your FL_helena5 would look like: 
+
+D = FL_helena5(S)
+
+Where: 
+* S is string of names. Assume the name is spelt with a capital letter in the first letter of their first, middle, and last name with spaces in between each name.  
+* D is an integer that represents the degree of separation
+
+Example output:
+>> The degree of separation between Helena Bonham Carter and Johnny Depp is 1. 
+>> Johnny Depp has starred with Helena Bonham Carter in the movie Sweeney Todd: The Demon Barber of Fleet Street (2007).
+
+Example output:
+>> The degree of separation between Elvis Presley and Kevin Bacon is 2. 
+>> Elvis Presley has starred with Ed Asner in the movie Change of Habit (1969) and 
+>> Ed Asner has starred with Kevin Bacon in the movie JFK (1991).
+
+You can do this program for extra credit called ‘FL_people5.cpp’ where it should take two inputs of S1 string, and S2 string which are actor’s names. Again, you will identify cases for the degree of separation these two actors have with each other. 
+
+This is an example of how your FL_helena5 would look like: 
+
+D = FL_people5(S1, S2)
+
+Where: 
+* S1 is string of a name. Assume the name is spelt with a capital letter in the first letter of their first, middle, and last name with spaces in between each name.  
+* S2 is string of a name. Assume the name is spelt with a capital letter in the first letter of their first, middle, and last name with spaces in between each name.  
+* D is an integer that represents the degree of separation
+
+
+
+Experiments
+You will perform experiments for Helena Bonham Carter by determining how many degrees of separation she has with the full movie cast of Barbie (2023) and Oppenheimer (2023). Analyze the data determine basic statistics. Mean, Max, Min, Median, Mode, Range, Standard Deviation and Variance.  Support with graphs and tables. Extra credit if you can provide a visual representation of the degree of separation for the movie cast in both movies.
+
+You will perform experiments as extra credit for all combinations of the movie cast using of Barbie (2023) and Oppenheimer (2023). Analyze the data determine basic statistics. Mean, Max, Min, Median, Mode, Range, Standard Deviation and Variance.  Support with graphs and tables. 
+
+Report
+
+After you have completed the experiments, write a report about
+
+1. The goal of the assignment. 
+2. Describe the algorithms you chose to use and their time and space complexity. Utilize equations or visuals to explain them. 
+3. A high-level overview of your program. How did you end up parsing the big files? How was your graph set up? Explain what components you used in you graph. Include a diagram/flowchart of your program. Include pseudocode for your main graph setup only. You do not need to include pseudocode for the data parsing. You don’t have to include screenshots of the code. I should be able to look at you .cpp file and this report side by side and follow it. 
+4. Discuss your two experiments and how you’ll set it up. If you did not do the extra credit experiment, then explain just the first one. How many comparisons are you doing? What is your set up? Any assumptions? Define your range of parameters.
+5. Discuss your experiment results with supporting graphs. This will be the bulk of your points, so make sure it is effective in communicating and answering the expectations. If you did the extra credit, put it here. 
+6. Conclude by discussing the time and complexity of your graph. What are some other ways you could’ve set it up, and why did you end up choosing the approach you did? Classify the type of intractability, and why do you think so?
+
+
+
+Rubric
+Code
+ 210.50Modularity scripts runs without errorThe script does not run without errorsCoding Practicesscript contains a 3-line header where the first line is your full name, the second line is the class name, the third line is the assignment nameIt does not contain all the elements I requestedCoding Standardsscript has effective, descriptive comments that allows full comprehension of the programThe script does not have effective, descriptive comments that allows full comprehension of the programCorrectnessThe implementation works and outputs correct answer There’s an attempt of logic and it almost workedDemonstrates struggle and no path towards a solution  Advanced Knowledge
+(Extra Credit)FL_people5.cpp’ is fully correct
+1 point deduction if the function is incorrectly named
+1 point deduction if the .cpp file is incorrectly named
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report
+ 210.50Completion The report has all required sections and discussion points. The report has half to almost all required sections and discussion points. The report has less than half of the required sections and discussion pointsClarity of CommunicationThe report demonstrates the full comprehension of graphs and how to analyze the results. The report demonstrates the moderate comprehension of graphs and how to conduct an experiment design The report demonstrates little to no comprehension of graphs and little to no comprehension on experiment designsVisual QualityThe report is visually appealing, and it is clear to find all sections and discussion points. The report is somewhat visually appealing, and it is sometimes unclear in finding the discussion points. The report is not appealing and has no section headers or indicatorsFigures and TablesAll figures and tables are neatly presented with captions and numberingHalf to almost all figures and tables are neatly presented with captions and numberingLess than half of the figures and tables are not properly presentedResult InterpretationPresents a full correct interpretation of the results of experiment 1. Able to describe and synthesize the results 
+Somewhat a full correct interpretation of the results of experiment 1. Able to describe but not synthesize the results 
+An attempt is given but it is not correct.No description or synthesis of the results are givenAdvanced Discussion (Extra Credit)Performs correct experiment design, and analysis for experiment 2.Performs correct experiment design, but no analysis for experiment 2
+1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+Demo 3
+Overview
+1.	NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due October 19 by 11:59pm. 
+2.	No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3.	Submit the report titled “3_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4.	Submit your code called “FL_demo3.m” and “FL_getSpectralCurves3.m” where F is the initial of your first name and L is the initial of your last name. It must be in .m format, otherwise 10% will be deducted. You do not need to submit a folder of your images. They should be used in your report.
+5.	This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. A rubric is provided at the end.
+
+Program
+You will code a program for the Spectral Band Difference Based Segmentation. We mentioned Gampa’s method for spectral band difference-based segmentation in lecture 6 –traditional segmentation approaches. Gampa published his work here:
+https://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1192&context=computerscidiss
+You are to implement his method by using the hyperspectral imagery from the Camelina dataset. Make sure you are appropriately mapping the image to the correct wavelength.  Confirm this by looking at 1_0_0.png in the Hyp_SV_0 folder. No copying of open-source code is allowed. You will also program Getting Spectral Curves. 
+
+Write a Matlab function file with the interface:
+[binary_image, cube] = FL_demo3(HYP, wavelength1, wavelength2)
+
+Where
+•	HYP is a 248x1 struct of the images in the Hyp_SV_90 folder after it has been called using the dir( ) command. 
+•	wavelength1 is the nanometer value of an image that represents that wavelength. The image to be represented is like the image in Figure 4.2 (a) in the published work.
+•	wavelength2 is the nanometer value of an image that represents that wavelength. The image to be represented is like the image in Figure 4.2 (b) in the published work.
+•	binary_image is a binary image after the images have undergone the spectral band difference-based segmentation method. You do not need to display it. 
+•	Cube is a mxnxp uint8 where m and n are the image’s length and width, and p is the number of hyperspectral images. This is extra credit and not required but still include the variable and output it as -1. 
+
+Write a Matlab function file with the interface:
+[curves] = FL_getSpectralCurves3(HYP, binary_image, coordinates)
+
+Where
+•	HYP is a 248x1 struct of the images in the Hyp_SV_90 folder after it has been called using the dir( ) command. 
+•	binary_image is a binary image after the images have undergone the spectral band difference-based segmentation method. It is the output from the FL_demo3 function
+•	coordinates is a 3x2 matrix that has the x-coordinate and y-coordinate somewhere in an old leaf, young leaf, and the stem. That is the order I expect coordinate to be. 
+•	curves is a wx5 matrix. Column1 is a list of wavelengths from the dataset. Column2 is a list of the plant pixel average reflection coefficient. Column3 is a list of a single coordinate from an old leaf’s reflection coefficient. Column4 is a list of a single coordinate from a young leaf’s reflection coefficient. Column5 is a list of a single coordinate from the stem’s reflection coefficient.  
+
+You may need to use the binary_image (since it only contains the plant pixels) as you map back to the original hyperspectral image to get the reflection coefficients. Then, you can obtain an average of all the reflection coefficients that are plant pixels. This mapping technique was briefly mentioned in Lesson 4.  
+
+Also, make sure that you create a Matlab Function instead of a Matlab Script. If you do not do this, you will have trouble naming the file the same as your function. 
+
+We will have already created the directory struct for the hyperspectral folder in the Camelina dataset. Ensure that the struct is the input to your function. When we test your script, we will call you function and input the variables. Assume that the script is in the same directory as the dataset. Assume that I can put in whatever wavelength I want, and your program will have to map it to the closest one. Assume that I can put wavelengths that fall outside the dataset’s spectrum.
+
+This will be our interface to test your script:
+HYP = dir('316Camelina_3...); // omitted the full path for space
+wavlength1 = 678nm;
+wavelength2 = 800nm; 
+coordinates = [ [120, 400]; [300,500]; [200, 128] ] ;
+[binary_image, cube] = FL_demo3(HYP, wavelength1, wavlength2);
+[curves] = FL_getSpectralCurves3(HYP, binary_image, coordinates);
+
+
+
+Experiments
+After implementing Gampa’s approach on the Camelina dataset, you are expected to test your program and perform experiments.
+
+First experiment: Using the given ground truth image that will represent all the hyperspectral images, determine a continuous range of images that encompasses approximately 20 nanometers for each of the two wavelength inputs to the segmentation method and what you think would give the highest quality segmentation. Determine all the possible combinations that can be tested between the two inputs without repetition or swapping values from one input to another. For each combination, put it through your program to obtain the binary image. After collecting the binary image for each combination, determine its Precision and Jaccard. You will perform analysis on the Precision and Jaccard of the output. 
+
+Second experiment: Produce spectral curves of the plant using the hyperspectral data. A spectral curve is a graph of the wavelengths and the reflection coefficients (pixel value). You will perform analysis on the 4 spectral curves you just produced using your knowledge of wavelengths from Lesson 2. 
+
+Report
+Write a report that contains:
+1.	A description of your goals, program, experiment design, qualitative and quantitative results. Make sure to discuss the spectral curves from your experiment design and any qualitative discussion you have. Include a conclusion and all the necessary sections. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rubric
+Code
+ 	2	1	0.5	0
+Modularity 		Both scripts run as a function call 	Only 1 script runs as a function call 	The script does not run as a function call
+Coding Practices		Both scripts contains a 3-line header where the first line is your full name, the second line is the assignment name, and the third line is your running system	Only 1 contains a 3-line header 	It does not contain all the elements I requested
+Coding Standards		Both scripts have effective, descriptive comments that allows full comprehension of the program	Only 1 script has effective, descriptive comments that allows full comprehension of the program	The script does not have effective, descriptive comments that allows full comprehension of the program
+Correctness	The segmentation method and the spectral Curve is coded correctly	Either the segmentation method or the spectral Curve is coded correctly		The segmentation method is not properly coded, there is logic missing.
+Advanced Knowledge
+(Extra Credit)		Code a hyperspectral cube that has dimensions mxnxp where m and n are the image’s length and width, and p is the number of hyperspectral images. 		
+
+1 point deduction if the function is incorrectly named
+
+
+
+
+
+
+
+
+Report
+ 	2	1	0.5	0
+Completion 		The report has all required sections and discussion points. 	The report has half to almost all required sections and discussion points. 	The report has less than half of the required sections and discussion points
+Clarity of Communication		The report demonstrates the full comprehension of the segmentation method and how to analyze the results. 	The report demonstrates the moderate comprehension of the segmentation method and how to conduct an experiment design 	The report demonstrates little to no comprehension of the segmentation method and little to no comprehension on experiment designs
+Visual Quality		The report is visually appealing, and it is clear to find all sections and discussion points. 	The report is somewhat visually appealing and it is sometimes unclear in finding the discussion points. 	The report is not appealing and has no section headers or indicators
+Figures and Tables		All figures and tables are neatly presented with captions and numbering	Half to almost all figures and tables are neatly presented with captions and numbering	Less than half of the figures and tables are not properly presented
+Result Interpretation	Presents a full correct interpretation of the results. Able to describe and synthesize the results 
+	Somewhat a full correct interpretation of the results. Able to describe but not synthesize the results 
+	An attempt is given but it is not correct.	No description or synthesis of the results are given
+Advanced Discussion (Extra Credit)		Create a 2.2 Section and qualitatively and quantitatively describe how the Camelina dataset differs from the dataset used in Gampa’s work. Use figures/tables to support your answer.	Mentions either qualitative or quantitative discussion.	No mention of either qualitative or quantitative discussion.
+1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect

@@ -1,0 +1,30 @@
+Demo 1
+Overview
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due September 14 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “1_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “LastName_FirstName_1.m” It must be in .m format, otherwise 10% will be deducted. You do not need to submit a folder of your images. They should be used in your report. 
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Expectations
+1. Students will create a MATLAB script that can:
+a. Parse through all the images automatically in the plant image-based dataset, CosegPP,
+b. Convert each image to binary, and 
+c. Save each binary image by creating a new folder called ‘Vis_SV_0_binary’ in the ‘Sunflower’ folder. 
+2. A report will follow that will demonstrate the student’s understanding, and synthesis. 
+3. A mini experiment will then be conducted to determine your code’s runtime. You will need to learn how to by looking in www.mathworks.com and searching for Measuring the Performance of Your Code
+4. You do not need to submit your binarized images. 
+5. CosegPP will have 2 folders. Vis_SV_0_binary folder is for your visual aid so you can see how the images are supposed to look like. You can effectively remove the Vis_SV_0_binary folder and continue processing your imagery. Remember to create the necessary folders in your code to save the binary images. 
+
+Report
+Write a report that contains:
+1. A summary of the objectives of the demo. Meaning, what were the expected learning objectives. I’m not looking for technical (what did you do), I’m looking for what did you learn? 
+2. A description of the dataset, not the results. Include a figure that would help your description. I expect a technical description – it’s resolution size, image type, etc. I expect a visual description – what do the images represent? What kind of plant? How many days? Anything else?
+3. Prove your code’s runtime using either runtime analysis or MATLAB’s timer. 
+4. A brief paragraph describing what was the most challenging part of the demo. The more descriptive, the better I can evaluate if you require assistance for future demos. This is your opportunity to let me know how you’re feeling with MATLAB and if you require assistance.
+
+Code
+1. The code must be run independently outside the dataset’s main folder. In this case, it must run outside the CosegPP folder.
+2. It must be able to run in a single click with no errors. Warnings are fine. Make sure your line of code that reads the images is dynamic. Meaning that it can be ran by anyone by getting their relative path. 
+3. It must contain a header with the assignment name, your name, and your running system (Mac/Linux/Windows). 
+4. It must contain descriptive comments.

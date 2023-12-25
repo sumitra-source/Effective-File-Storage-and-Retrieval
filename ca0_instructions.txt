@@ -1,0 +1,70 @@
+Coding Assignment 0
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due August 31 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “0_LastName_FirstName.pdf.” You do not need to submit the code. If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+
+Assignment 
+This assignment will go step by step with you so you can become familiarized with Visual Studios.
+
+1. Make sure you download Visual Studios Code into your computers. 
+a. Mac with Mac Chip: https://www.youtube.com/watch?v=pdfLW9PSrhQ 
+b. Mac with Intel Chip: https://www.youtube.com/watch?v=KhGnYWplLVo 
+c. Windows: https://www.youtube.com/watch?v=jvg4VtYEhKU 
+
+TASK: Place a screenshot if your Visual Studios window with a new, and empty .cpp script called ca0.cpp
+
+2. Create a Hello World program using C++ where there is an endl at the end of the Hello World String
+
+TASK: Place a screenshot of your code and its execution in the terminal. 
+
+3. Underneath the Hello World line, write code that asks for my name and count how many characters are in the name, and output the value. 
+
+TASK: Place a screenshot of your code and its execution in the terminal
+
+4. Continuing in the same script, write a code snippet that will ask how old I am, and if I am younger than 13, tell me I cannot watch Back to the Future. If I’m 13 and older, tell me that I can watch Back to the Future.  
+
+TASK: Place a screenshot of your code and its execution in the terminal
+
+5. Continuing in the same script, take the number that I used as input for #4, and perform a countdown. For example, If I put 5, the output would be:
+5
+4
+3
+2
+1
+
+TASK: Place a screenshot of your code and its execution in the terminal
+
+6. Continuing in the same script, take the number that I used as input for #4, and output a nxn matrix counting the cells. For example, if I put 5, the output would be:
+
+1    2   3   4   5
+6    7   8   9  10
+11 12 13 14 15 
+16 17 18 19 20
+21 22 23 24 25
+
+TASK: Place a screenshot of your code and its execution in the terminal
+
+7. Continuing in the same script, take the number I used as input for #4, and the name retrieved in #3, and output the name that many times. For example, if you have the name Tony, and the value 4, the output would be: 
+Tony
+Tony
+Tony
+Tony
+
+TASK: Place a screenshot of your code and its execution in the terminal
+
+8. Additional Questions 
+
+TASK: Explain some ways are you can fail this course.  
+
+TASK: Explain what the prerequisites for this course are. 
+
+TASK: Explain the consequences on turning assignments late.  
+
+
+
+
+
+
+

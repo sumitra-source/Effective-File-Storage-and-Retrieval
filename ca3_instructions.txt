@@ -1,0 +1,92 @@
+Coding Assignment 3
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due November 8 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “3_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “FL_ca3.cpp” and or “FL_ec_ca3.cpp” It must be in .cpp format, otherwise 10% will be deducted. 
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Purpose
+This assignment will test your knowledge on how to implement a Dynamic Programming problem. A Dynamic Programming algorithm is an approach where the problem is first broken down into sub-problems that avoids recomputing a sub-problem more than once. You must use a recurrence relation and define if you’re doing tabularization or memoization. 
+
+Program
+There is a situation where Grandma Rosa is going to pass away soon, and she wants to leave her collection of Pokémon cards to her three granddaughters, Camila, Melanie, and Selena. Grandma Rosa loves her granddaughters and ideally, she would divide the cards as evenly as possible in terms of value. However, Grandma Rosa does want to know the possibility of giving her card to one, two, or all grandchildren. You are tasked to ensure that Grandma Rosa’s request is followed knowing that each card has different monetary values while ensuring to minimize the difference in the sum of values for whichever number of granddaughters she picks. Rosa also requires that whoever is her favorite when she passes, will get the sub deck with the highest value. If for some reason her favorite grandchild isn’t going to be receiving a sub deck, then we’ll omit cards to make sure that the other grandchildren get equal amounts. 
+
+Here is an example of a list of cards and its values:
+CardC1C2C3C4C5C6C7C8Value ($)21315234
+If we were only considering two granddaughters, you can determine that the answer would be: 
+CamilaC1, C3, C510SelenaC2, C4, C6, C7, C811
+Where Camila gets a set of cards equal to the value of $10, and Selena gets a deck of cards equal to the value of $11. Selena will get the $11 since she is the current favorite. However, if Selena wasn’t the favorite, and neither was Camila, then we must remove cards to make sure they both leave with equal value. In this case, we can remove C2 from Selena so now each gets cards of value $10. Also note which card was discarded. 
+
+Your program should be able to handle n cards where each card could have an integer value between and including 1 to 50. In the function, you will randomly select G grandchildren, and handle the scenario while taking into consideration the favorite. Make sure to output which granddaughter will get which cards and their total value, who was the favorite and were they part of the scenario, and if cards will be discarded or not. Even if the scenario was for 1 or 2 grandchildren, all grandchildren will need a corresponding output. Remember that you should not prompt user to input any values. Everything will be run automatically. You may create cout statements to help convey ideas in the program. 
+
+This is an example of how your interface would look like: 
+
+FL_ca3(A, G, name)
+
+Where: 
+* A is an array of any size (between 1 to 4096) that will contain integers only. 
+* G is an integer that can be ‘1’ for one grandchild, ‘2’ for 2 grandchildren, and ‘3’ for all grandchildren
+* name is a string that could be ‘selena’, ‘camila’, or ‘melanie’
+
+Example output:
+>> Grandma Rosa has a deck of 8 cards and wants to distribute it to 2 grandchildren. When she passed, her favorite grandchild was Camila.
+>>
+>> If the deck were being distributed to Camila and Selena, then 
+>> Camila would get cards 2, 4, 6, 7, 8 with a total value of $11
+>> Selena would get cards 1, 3, 5 with a total value of $10
+>> Melanie would get 0 cards with a total value of $0
+>> 
+>> No cards were excluded 
+
+The grandchild that will be the favorite is dependent on your initials. For example, if your first initial for your first name is ‘R’ and the first initial of your last name is ‘Q’ you will determine their order number in the alphabet. So, ‘R’ would be 18 and ‘Q’ would be 17. The summation of those two integers is 35. Take that summation and do the modulus of 3 and you get 2. If you get ‘0’ for Camila, ‘1’ your priority is Selena, if you get ‘2’ your priority is Melanie. You are free to choose who the second favorite is. 
+
+Extra Credit: 
+In addition to the assignment above, you can receive extra credit if you create another function called FL_ec_ca3( ) that if given A that represents a deck of cards, and any integer value of G grandchildren. There are no favorite grandchildren, and no names will be specified. The output would be similar where instead of names, you will just label them as Grandchild 1, Grandchild 2, etc. Still output the total value per grandchild. It must be correct and handle all corner cases. If all corner cases is not considered, you forfeit all of the extra credit. 
+
+Experiments
+You will perform experiments for different card array sizes with n=1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096 if you were to select 1 grandchild, 2 grandchildren, and all 3 of them, based on your generated favorite. How does this affect storage space and computational speed? Support with graphs.
+
+Extra Credit: 
+You will perform experiments to determine how does varying sizes of A (1 to inf) effect the varying amounts of G grandchildren (1 to inf). Notice how I left this vague. It is up to you to determine the range, experiments, and define assumptions, to test these parameters while determining how these parameters affect storage space and computational speed. Support with graphs. If the experiment is set up incorrectly or has flaws, you forfeit all the extra credit. 
+
+Report
+
+After you have completed the experiments, write a report about
+
+1. The goal of the assignment. Include if you are attempting the extra credit code and/or report and what the priority grandchild you computed based on your initials. Detail your computing environment, e.g., computer model, OS, hardware/software info, processor model and speed, memory size, etc.
+2. Describe what is a Dynamic Programming algorithm and the two types of approaches one can use. Leverage figures to help visualize your explanation. 
+3. A high-level overview of your solution. Explain and defend that your solution and approach is dynamic programming. You can defend by showing a recursion tree of a sample scenario and demonstrate how your recursion relation works. Also mention which type you will be doing (memorization or tabularization). Finally, include pseudocode of your program and make sure it is visually presentable with its time and space complexity. If you do the extra credit, do all this for the extra credit function, as well. There may be overlap in logic, and that is okay. 
+4. Discuss your experiment design/setup. If you do the extra credit, you will have 2 sub sections. Mention any assumptions you make and clearly define the parameter ranges and what you’ll be testing. 
+5. Discuss your experiment results with supporting graphs. This will be the bulk of your points, so make sure it is effective in communicating and answering the expectations. Go more than just describing the results, synthesize the results. 
+6. Conclude by critiquing your own code, approach, and experimentation. Don’t write this as “what is wrong with my code” but “how can my code and coding practices be better.”  Take into consideration format, style, readability, logic, reusability, design, etc. Finish by stating how confident you are in your algorithm analysis in the report and your confidence on how you designed the algorithm meant to solve the problem.
+Rubric
+Code
+ 210.50Modularity script runs without errorThe script does not run without errorsCoding Practicesscript contains a 3-line header where the first line is your full name, the second line is the class name, and the third line is the assignment nameIt does not contain all the elements I requestedCoding Standardsscript has effective, descriptive comments that allows full comprehension of the programThe script does not have effective, descriptive comments that allows full comprehension of the programCorrectnessIt handles all corner cases, it is correct, and outputs relevant informationOnly 2 elements are done correctlyOnly 1 element is done correctlyNone of the elements are done correctlyAdvanced Knowledge
+(Extra Credit)Code FL_ec_ca3 correctly including all corner cases 
+1 point deduction if the function is incorrectly named
+1 point deduction if the .cpp file is incorrectly named
+
+
+
+
+
+
+
+
+
+
+
+
+
+Report
+ 210.50Completion The report has all required sections and discussion points. The report has half to almost all required sections and discussion points. The report has less than half of the required sections and discussion pointsClarity of CommunicationThe report demonstrates the full comprehension of the dynamic programming method and how to analyze the results. The report demonstrates the moderate comprehension of the dynamic programming method and how to conduct an experiment design The report demonstrates little to no comprehension of the dynamic programming method and little to no comprehension on experiment designsVisual QualityThe report is visually appealing, and it is clear to find all sections and discussion points. The report is somewhat visually appealing, and it is sometimes unclear in finding the discussion points. The report is not appealing and has no section headers or indicatorsFigures and TablesAll figures and tables are neatly presented with captions and numberingHalf to almost all figures and tables are neatly presented with captions and numberingLess than half of the figures and tables are not properly presentedResult InterpretationPresents a full correct interpretation of the results. Able to describe and synthesize the results 
+Somewhat a full correct interpretation of the results. Able to describe but not synthesize the results 
+An attempt is given but it is not correct.No description or synthesis of the results are givenAdvanced Discussion (Extra Credit)Perform correct experimental design and analysis for FL_ec_ca3
+1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect
+
+
+
+

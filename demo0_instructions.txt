@@ -1,0 +1,71 @@
+Demo 0
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due August 31 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “0_LastName_FirstName.pdf.” You do not need to submit the code. If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+
+Assignment 
+This demo will go step by step with you so you can become familiarized with MATLAB.
+
+1. MATLAB is an interactive, interpreted language that is designed for fast, numerical matrix calculations. Your initial screen may be different from what is shown in Figure 1. You can adjust the different panels to fit your project needs. Below is an initial screenshot with its descriptors. 
+
+
+
+Figure 1: Overview of the MATLAB interface.
+
+TASK: Create a folder in the Desktop titled ‘demo_0’ and make sure the ‘2019-08-18_13-24-08.551_2419500.png’ image is in the folder. Change the directory of MATLAB to be inside your ‘demo_0’ folder. Place a screenshot, similar to Figure 1, below.
+
+2. Now that we are in the working directory, let’s read the ‘2019-08-18_13-24-08.551_2419500.png’ image. Make sure you set up a new script first.
+a. Click the ‘New Script’ button that is found in the ‘Home’ tab. A new window/script should pop up called ‘untitled’.
+b. Save the script to be called ‘main_0.m’ and put it in the ‘demo_0’ folder. 
+c. Read the image by typing the following:
+      im = imread(‘mandrill.png’);
+d. Run the script. 
+e. Notice that the variable ‘im’ was added to our workspace, and the script was executed in the Command Window. 
+
+TASK: Place a screenshot of your MATLAB window. 
+
+3. Remove the semicolon from the one line of code that we have. What did it do differently? What do you think the semicolon is for? 
+
+TASK: Place a screenshot of your MATLAB window. Explain what as the difference. What do you think the semicolon is for? 
+
+4. Add the semicolon back to the one line of code. We used the MATLAB function called ‘imread’ but what does it really do? Let’s figure it out.
+a. In the Command Window, type the following:
+help imread
+b. A detailed description of the function should appear, along with sample code on how to use it. If you want a more visual explanation, you can go to www.mathworks.com and search documentation through there.
+
+TASK: There are four ways you can use imread. We used the third way (the one that takes in one input only).  Describe to me what FILENAME is, and what are the conditions to use FILENAME.
+
+5. Now that we know what imread does, lets make sure that we read the correct image. 
+a. In the Command Window type the following:
+imshow(im);
+
+TASK: Take a screenshot of the Figure that popped up after you ran the above command.
+
+6. Close the Figure. Remember, anything that is done in the Command Prompt, the code will not be saved, but it has to potential to manipulate your variables. Let’s make sure we have a copy of the code. Copy the code from 5a into your script below the imread code.
+7. Let’s take a closer look at our image’s pixel values. Double click the ‘im’ variable in the Workspace. A new Variables window should pop up. 
+
+TASK: Screenshot the Variables window. 
+
+8. Looks like we cannot see the pixel values from the Variables window. This usually happens when the image is more than 1 dimension. Our image has 3 dimensions (442x442x3 where 442 is the length, 442 is the width, and 3 is the dimension count). However, we can still index values. Let’s learn about the Image Coordinate Systems via www.mathworks.com 
+
+TASK: What is the value of the pixel at coordinate (20, 144) in the 1st, 2nd, and 3rd dimension? 
+
+9. Additional Questions 
+
+TASK: Explain some ways are you can fail this course.  
+
+TASK: Explain what the prerequisites for this course are. 
+
+TASK: Explain the consequences on turning assignments late.  
+
+
+
+
+
+
+
+
+
+

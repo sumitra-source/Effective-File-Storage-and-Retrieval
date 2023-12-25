@@ -1,0 +1,113 @@
+      Coding Assignment 4
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due November 15 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “4_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “FL_sudoku4.cpp” and “FL_advancedsudoku4.cpp” It must be in .cpp format, otherwise 10% will be deducted. F is the first initial of your first name, and L is the first initial of your last name.
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Purpose
+This assignment will test your knowledge on how to utilize various advanced algorithms. 
+
+Program
+You will code a Sudoku puzzle and you will decide which advanced algorithm concept (greedy, divide and conquer, dynamic programming) you will need to incorporate to execute the puzzle. Sudoku is a logic puzzle set traditionally on a 9x9 grid. The goal is to fill in the blank spaces in the puzzle with the digits 1 to 9 and must follow these four rules: (1) each row contains each digit once; (2) each column contains each digit once; (3) each 3x3 sub grid contains each digit once; (4) each cell contains only a single number. Below is an example of a Sudoku puzzle.
+
+
+
+Your program ‘FL_sudoku4.cpp’ should take in inputs S matrix where S is a 9x9 matrix of a sudoku puzzle that can vary in difficulty. Blank spaces in a typical Sudoku puzzle will be represented with an ‘0’. The program should output the solution to the puzzle. 
+
+
+This is an example of how your sudoku4 would look like: 
+
+R = FL_sudoku4(S, D)
+
+Where: 
+* S is a 9x9 matrix with integers and blank spaces represented as ‘0’ 
+* D is an integer where ‘0’ is easy, ‘1’ is medium, and ‘2’ is hard
+* R is the result 9x9 matrix of sudoku with integers in all cells
+
+
+Your program ‘FL_advancedsudoku4.cpp’ will take in inputs D integer that represents the difficulty of the puzzle where ‘0’ is easy, ‘1’ is medium, and ‘2’ is hard. Another input should be n size where N can be 4, 9, 16. that will represent an nxn sudoku puzzle. This program should be able to solve any size sudoku at any level of difficulty. 
+
+This is an example of how your sudoku4 would look like: 
+
+R = FL_advancedsudoku4(S, N)
+
+Where: 
+* S is a nxn matrix with integers and blank spaces represented as ‘X’ 
+* N is an integer that can range from 4 to 25. 
+* R is the result 9x9 matrix of sudoku with integers in all cells
+
+This is assuming you are doing one advanced algorithm concept. If you choose to do additional concepts for extra credit, then create a new input variable called C where we can put in the string of the concept: ‘greedy’, ‘dac’, ‘dp’ for both functions.  Also, designate which concept is going to be your primary concept that will be used for the main points, and which ones are extra credit. 
+
+Example output:
+>> My awesome program solved your sudoku puzzle! Here is the answer: 
+>>
+>> 9 7 2 | 8 6 3 | 5 4 1  
+>> 6 1 8 | 7 4 5 | 9 2 3 
+>> 4 5 3 | 2 9 1 | 6 8 7  
+>>  ---------------------
+>> 5 4 9 | 1 2 8 | 7 3 6  
+>> 8 2 1 | 6 3 7 | 4 5 9  
+>> 7 3 6 | 4 5 9 | 2 1 8  
+>> ---------------------
+>> 2 9 5 | 3 8 6 | 1 7 4  
+>> 1 8 4 | 9 7 2 | 3 6 5  
+>> 3 6 7 | 5 1 4 | 8 9 2
+
+
+
+Experiments
+You will perform experiments for different puzzle difficulties. How does this affect storage space and computational speed? If you decided to program extra concepts, do experiments for each concept. Support with graphs.
+
+You will perform experiments for all sudoku sizes as easy. How does this affect storage space and computational speed? Support with graphs. 
+
+Report
+
+After you have completed the experiments, write a report about
+
+1. The goal of the assignment. Include if you are attempting the extra credit code and report. Detail your computing environment, e.g., computer model, OS, hardware/software info, processor model and speed, memory size, etc.
+2. Describe what algorithms you chose to use and how are they different in processing inputs. Also include their time and space complexities. If you did dynamic programming mention if you did memorization or tabularization. If you did greedy, what assumptions or conditions did you choose to do? Use visuals to help explain the differences.
+3. A high-level overview of your program. Describe the two functions and what each does. Include a flowchart/diagram of your program and pseudocode. You don’t have to include screenshots of the code. I should be able to look at you .cpp file and this report side by side and follow it. 
+4. . 
+5. Discuss your experiment results with supporting graphs. This will be the bulk of your points, so make sure it is effective in communicating and answering the expectations. Go more than just describing the results; synthesize the results. 
+6. Conclude by summarizing what you learned about each of the algorithm concepts in terms of time and space results from the experiments.  Describe the strength and weaknesses of the concepts. Classify the type of intractability and why do you think so (lesson 18).  
+
+
+
+
+
+
+
+
+
+
+
+
+Rubric
+Code
+ 210.50Modularity script runs without errorThe script does not run without errorsCoding Practicesscript contains a 4-line header where the first line is your full name, the second line is the class name, the third line is the assignment name, the fourth line is a list of concepts you chose to implementIt does not contain all the elements I requestedCoding Standardsscript has effective, descriptive comments that allows full comprehension of the programThe script does not have effective, descriptive comments that allows full comprehension of the programCorrectnessPrimary concept is correct and efficient. It is correct but not efficient. Redundant/unnecessary loops or doesn’t use recursion relation if DP.Uses brute force or is not correct nor efficient. Didn’t attempt.  Advanced Knowledge
+(Extra Credit)Implements two additional concepts and they’re correct and efficient in both functionsImplements one additional concept and its correct and efficient in both functionsImplements at least one concept but its only in one function onlyDoesn’t implement additional concepts. 
+1 point deduction if the function is incorrectly named
+1 point deduction if the .cpp file is incorrectly named
+
+
+
+
+
+
+
+
+
+Report
+ 210.50Completion The report has all required sections and discussion points. The report has half to almost all required sections and discussion points. The report has less than half of the required sections and discussion pointsClarity of CommunicationThe report demonstrates the full comprehension of all (or one of) the advanced algorithms concepts and how to analyze the results. The report demonstrates the moderate comprehension of the dynamic programming method and how to conduct an experiment design The report demonstrates little to no comprehension of the dynamic programming method and little to no comprehension on experiment designsVisual QualityThe report is visually appealing, and it is clear to find all sections and discussion points. The report is somewhat visually appealing, and it is sometimes unclear in finding the discussion points. The report is not appealing and has no section headers or indicatorsFigures and TablesAll figures and tables are neatly presented with captions and numberingHalf to almost all figures and tables are neatly presented with captions and numberingLess than half of the figures and tables are not properly presentedResult InterpretationPresents a full correct interpretation of the results. Able to describe and synthesize the results 
+Somewhat a full correct interpretation of the results. Able to describe but not synthesize the results 
+An attempt is given but it is not correct.No description or synthesis of the results are givenAdvanced Discussion (Extra Credit)Performs correct experiment design, and analysis for two additional concepts.Performs correct experiment design, and analysis for one additional concept.Provides attempt for at least one concept but either the design or analysis is lacking/incorrect.
+1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect
+
+
+
+
+

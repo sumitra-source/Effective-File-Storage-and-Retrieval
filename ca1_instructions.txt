@@ -1,0 +1,121 @@
+Coding Assignment 1
+
+Overview 
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due September 27 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “1_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your code called “FL_ca1.cpp” where F is the first initial of your first name and L is the first initial of your last name. It must be in .cpp format, otherwise 10% will be deducted. 
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. 
+
+Purpose
+This assignment will test your knowledge on how to implement Greedy algorithms. A Greedy algorithm is an approach to solving a problem that selects the most appropriate option based on the current situation. It also ignores the fact that current best result may not bring about the overall optimal result. Even if the initial decision was not optimal, the algorithm never reverses it. 
+
+Program
+We reviewed the Policemen Catching Thieves problem in Lecture 7. You will code this problem using the Greedy approach with some modifications and rules. You can decide the aspects of the program you want to prioritize in certain cases in your program. Make sure you list those priorities in the report. For example, if one policemen is in a position where there is a thief on top, and a thief on bottom, but can only catch one, the policemen prioritizes the top. Also, these modifications should all be run together in your function. Meaning, a single run would include the rules of modification 1 and 2 if that is what you choose. 
+
+Modifications
+You are allowed to select 2 modifications below to implement. Any additional modifications can be considered extra credit if they’re correct. Mention this in your report which modifications you’ll be doing for the assignment, and which one are for extra credit.  P is for policemen, T is for thief, and R is for rookie.
+1. A policeman can only catch a thief if both of them are in the same column. 
+
+P	OR 	T
+T		P
+
+2. A rookie can catch a thief in any row and column if a policeman can help catch them too in any row or column.
+    P				P
+R T P	or	P T R 	or	R T	or	R T	or	T R	or 	T R
+						    P				P
+3. It can take 3 rookies to catch a thief in any row or column.
+    R	                R					R
+R T R	or	R T	or	R T R		or 	T R
+	                R		   R			R
+
+4. A policeman cannot catch a thief who is more than K units away in any column and row.  
+Ex) if K = 3 (and – represents each in between cell for clarity)
+
+CAN CATCH		CAN CATCH		CANNOT CATCH
+P – – T			P– – – T		P – – – – T
+
+CAN CATCH		CAN CATCH		CANNOT CATCH
+P			P			P
+–			–			–
+–			–			–
+T			–			–
+			T			–
+						T
+
+Rules
+1. Instead of an array as input, you will use a matrix. 
+2. cout the matrix as a nice grid for visual clarity. 
+3. The code must be modular, and all working code must belong to a function with the main function only containing the input the variables: matrix M, units K and solve_PCT() function. 
+4. You should not be getting user input. 
+5. The output should tell me how many thieves can be caught, and cout how were the thieves caught. 
+6. You can have cout statements if it helps with the flow of the program. Ex) “Code is Running”, “Welcome to the Policemen Catching Thieves Program!” 
+7. Each cell in the grid must contain either a policemen, thief, or rookie. 
+8. Thieves are restricted to this constraint: 1 <= T <= 10
+9. N for grid size is restricted to this constraint: 1<= N <= 1000
+10. K is restricted to this constraint: 1 <= K <= N*N
+
+This is an example of how your interface would look like: 
+
+ T = solve_PCT(M, K);
+
+Where 
+* M is the input matrix of size NxN
+* K is the number of units to represent distance 
+* T is the number of total thieves caught
+* PCT is Policemen Catching Thieves
+
+Example output:
+>> Welcome to the Policemen Catching Thieves Program!
+>> 
+>> Input Grid
+>> P T P R
+>> T R P P
+>> T P R P
+>>
+>> 3 thieves were caught.  
+>> Thief at (1,2) was caught by Police at (1,3)
+>> Thief at (2,1) was caught by Police at (1,1) 
+>> Thief at (3,1) was caught by Police at (3,2)
+
+Experiment Design
+You will perform experiments with different range values of for each variable (policemen, thieves, rookies and K units). You are expected to test each variable with a range of values while keeping the other variables constant. For example, you want to test if the number of policemen has an impact on the number of thieves caught using a 5x5 grid. You can have thieves equal to 5, rookies equal to 0. You will test with 5 policemen, and 15 rookies, 10 policemen and 10 rookies, 15 policemen and 5 rookies. Justify why you chose a certain range for your variable that you’re testing and why you used constant values for the other variables. 
+
+You will then discuss your results to determine if certain variables have an impact on the number of thieves caught or is there a threshold that has to be met. Support your results with combination runs, and graphs. 
+
+Report
+
+After you have completed the experiments, write a report about:
+1. The goal of the assignment. 
+2. Describe what a Greedy algorithm is and how does it differ between brute force methods. 
+3. Pseudocode of your program. Describe the modifications you decided to do. You don’t have to include screenshots of the code. I should be able to look at you .cpp file and this report side by side and follow it. Below is an example of a pseudocode I expect to see
+
+4. Discuss your experiment design.
+5. Discuss your results with supporting graphs. 
+6. Conclude by describing what your code’s overall time complexity and space storage and does it meet the theoretical expectations. What disadvantages does Greedy algorithm have that causes your program to not perform optimally?  
+
+Grade
+
+REPORT – 6 points total
+* 1 point – Describing the goals, a greedy algorithm, and your program with vivid detail, leveraging the use of equations and images demonstrating the student’s full comprehension of the coding assignment.
+* 1 point – Explaining and defining a well thought out experiment design that utilizes meaningful testing parameters that encompasses a full testing range.
+* 2 points – A full correct interpretation of the results. Able to describe and synthesize the results. 
+* 1 point – The report is visually appealing and the figures, tables, are neatly presented with captions and numbering. 
+* 1 point – Conclusion summarizes the findings of the report, includes time and space complexity, and is convincing that the student fully understands the operations and results. 
+
+* 1 point deduction – incorrect file name 
+* 1 point deduction – incorrect file type  
+
+* 1 point extra – for every additional modification that is executed correctly  
+
+CODE – 4 points total
+* 1 point – All header elements are present, and follows template
+* 1 point – there is effective comments
+* 1 point – script runs automatically without errors 
+* 1 point – the solution is correct 
+
+* 1 point deduction – incorrect naming for .cpp file 
+
+
+
+

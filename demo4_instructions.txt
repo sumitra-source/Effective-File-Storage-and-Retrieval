@@ -1,0 +1,114 @@
+Demo 4 
+
+Overview
+1. NO LATE WORK WILL BE ACCEPTED. If BlackBoard marks it late, it is late. If it is due at 11:59pm, and you submit it 11:59:01pm, Blackboard will mark it late. If you are having issues with submitting, you can submit it to Dr. Q and the TA. If you do this, it must be submitted by 11:58:59pm. This assignment is due November 16 by 11:59pm. 
+2. No outside help is allowed, no collaborations. Any reuse of previous student materials is considered cheating. Any signs of cheating or collaborations is considered cheating and will be handled according to SIUE’s academic misconduct. 
+3. Submit the report titled “4_LastName_FirstName.pdf.” If it is not properly named, 10% will be deduced. If it is not on pdf format, 10% will be deducted. 
+4. Submit your script called “FL_demo4.m” It must be in .m format, otherwise 10% will be deducted. You do not need to submit a folder of your images. They should be used in your report.
+5. This assignment has 10 points. 6 points will be for the report, and 4 points will be for the code. Your code will be evaluated on its ability to run without errors. Have effective comments with a header (name, class, assignment), and correctness. The report will be evaluated based on description and synthesis, along with visual appeal.
+
+Before the Demo
+1. In Matlab, download the Bioinformatics Toolbox, and the Statistics and Machine Learning Toolbox.
+2. Review how to use the kmeans( ) function in Matlab. This is the documentation page: https://www.mathworks.com/help/stats/kmeans.html Go through the example so you can learn how to set up the data.
+3. Review how to enhance the contrast of an image by linearly mapping the pixel values between the saturation limits to values between 0 and 1 at: https://www.mathworks.com/help/images/ref/imadjust.html You are free to choose another method.
+4. Review how to convert an RGB image to L*a*b at: https://www.mathworks.com/help/images/ref/makecform.html You are free to choose another method.
+
+Program
+Assuming your functions are in the same directory as your dataset, your first program will segment the diseased leaves using kmeans (3 clusters) and segment the healthy leaves using HSV.  
+
+Segment the Disease: 
+1. you will get the disease RGB images in a struct. Make sure you are dynamically removing unwanted rows using the ismember( ) function.
+2. preprocess each image by resizing it to 256x256, enhance the contrast, and convert the RGB image to L*a*b*. 
+3. for each image, implement kmeans on only the a*b* color space assuming 3 clusters and get each pixel’s cluster index. (You will determine why we chose 3 clusters and what they represent). Also, assume we’re measuring using the Euclidean Distance metric, and doing 3 replicates. Reshape the cluster indices (each pixel’s cluster index) to the resized 256x256. This will set it up to be used as input to the provided clus2rgbOverlay() function. Notice how this is a .p function. This means it is an executable Matlab script that obscures the code (does not allow you to see the code content). Like a “blackbox”. This should give you your 3 clustered mask images for each diseased leaf. 
+
+This is the obscured function:
+[segmented_images] = clus2rgbOverlay(I, pixel_labels, nClusters)
+
+Where
+* I is a 256x256x3 uint8 image that has been through resizing and contrast enhancement.
+* pixel_labels is a 256x256 double that has been reshaped 
+* nClusters is the number of clusters (already defined)
+* segmented_images is a 1x3 cell where each cell has a 256x256x3 uint8 masked image 
+
+Segment the Control: 
+1. you will get the control (i.e., healthy leaves) RGB images in a struct. Make sure you are dynamically removing unwanted rows.
+2. For each image, preprocess by resizing it to 256x256 and convert the RGB image to HSV. Keep only the Hue values that are <0.45 and >0.2 which should give you your segmented image for each healthy leaf. But you want a mask, so make sure to overlay the segmented image to the original RGB image.
+
+This is the program you will do:
+[mask_diseased_images, mask_control_images] = FL_demo4(disease, control)
+
+Where
+* disease is a character array of the folder name of the disease you will evaluate
+* control is a character array of the folder name of the healthy leaves you will evaluate
+* mask_diseased_images is a nx3 cell where n is the number of images in the disease folder, 3 is the number of clustered mask images, and each cell has a 256x256x3 uint8 masked image 
+* segmented_control_images is 15x1 cell that contains the images of the healthy leaves folder and each cell has a 256x256x3 uint8 masked image
+
+The disease that you will evaluate is dependent on your initials. For example, if your first initial for your first name is ‘R’ and the first initial of your last name is ‘Q’ you will determine their order number in the alphabet. So, ‘R’ would be 18 and ‘Q’ would be 17. The summation of those two integers is 35. Take that summation and do the modulus of 4 and you get 3. If you get ‘0’ you will evaluate Alternaria Alternata, ‘1’ is Anthracnose, if you get ‘2’ is Bacterial Blight, and ‘3’ is Cercospora Leaf Spot. 
+You can get extra credit for each additional disease you analyze.
+In the second program you will use the same disease (that you determined in the paragraph above) to get the diseased area ratio of the leaf and compute its feature statistics. You will also parse through the healthy leaves (i.e., control) folder and determine its feature statistics only.
+1. Determine the total diseased pixels. For each diseased image, you should have 3 masks where each represents a cluster. Use the selectCluster( ) function (notice that this is a .p function, as well) to identify the image that has the disease. Then, using the image that you identified to have the disease, you can find its 6-pixel connected components, identify the Area of every connected component, and sum it all. 
+2. Determine the total leaf pixels. For each diseased image, binarize it, and identify the 6-pixel connected components, identify the Area of every connected component, and sum it all.
+3. Find the diseased ratio 
+4. For the image you identified to have the disease, derive the statistics: contrast, mean, standard deviation, entropy, RMS, and Variance. Do the same for the healthy leaves. 
+
+The obscured function:
+[x] = selectCluster(j, mask_diseased_images)
+
+Where
+* j is the current index 
+* mask_diseased_images is a nx3 cell where n is the number of images in the disease folder, 3 is the number of clustered mask images, and each cell has a 256x256x3 uint8 masked image 
+* x is the user’s input for the cluster number they identified to have the disease
+
+This is the program you will do:
+[disease_stats, control_stats, Diseased_Ratio] = RQ_statsdemo4(disease, mask_diseased_images, mask_control_images)
+Where
+* disease is a character array of the folder name of the disease you will evaluate
+* mask_diseased_images is a nx3 cell where n is the number of images in the disease folder, 3 is the number of clustered mask images, and each cell has a 256x256x3 uint8 masked image 
+* mask_control_images is a 15x1 cell where 15 is the number of images in the control/healthy folder, and each cell has a 256x256x3 uint8 masked image 
+* disease_stats is a 9x6 cell that shows each of the 6 statistics for the 9 images
+* control_stats is a 15x6 cell that shows each of the 6 statistics for the 15 images
+* Diseased_Ratio is a 9x1 cell that shows the ratio for each of the 9 images
+
+
+
+
+
+Experiments
+First experiment: Experiment using 3 different pairs of Hue values and see how that qualitatively effects your 3 masked images. You have one pair that’s defined in the report (<0.45 and >0.2) that is meant to encompass the green. Now determine 2 other pair values.  This experiment would be repeated for any additional disease that you may do for extra credit.
+
+
+
+Second experiment: Discuss the statistics for the diseased and control leaf. Explain quantitatively the similarities and differences. Do the results make sense? This experiment would include all diseases with control if you choose to do more diseases for extra credit. 
+
+Report
+Write a report that contains:
+1. A summary of the goals of the demo. Meaning, what were the expected learning objectives. I’m not looking for technical (what did you do), I’m looking for what did you learn? 
+2. Discuss your 2 programs. For each, explain high-level what it is done. Include any pseudocode, and/or diagram that would help illustrate your program. Also explain the statistics, show their equations you used to derive them and what does it mean to get certain values in the statistic. Mention if you decided to do more diseases or just the one and which one did you end up computing based on your initials?
+3. Describe the dataset. Explain how many classes there are, how many images per class, show some sample images. Any other information that would help illustrate the dataset. 
+4. Explain your two experiment set ups. Which combinations did you end up choosing? How do you plan to show the similarities and differences between the leaves? 
+5. Discuss the qualitative results for experiment 1, what can you conclude based on the values and how they correspond to the included greenness? Discuss the quantitative results for experiment 2. Do they look right? Why or why not? What factors are impacting the results? What do they tell us about the leaves? 
+6. Conclude by summarizing the results that you got using the Kmeans Clustering Algorithm. Is it a reliable algorithm? What are its strengths and weaknesses? What about using color-based segmentation? 
+
+
+Rubric
+Code
+ 210.50Modularity Both scripts run as a function call Only 1 script runs as a function call The script does not run as a function callCoding PracticesBoth scripts contains a 3-line header where the first line is your full name, the second line is the assignment name, and the third line is your running systemOnly 1 contains a 3-line header It does not contain all the elements I requestedCoding StandardsBoth scripts have effective, descriptive comments that allows full comprehension of the programOnly 1 script has effective, descriptive comments that allows full comprehension of the programThe script does not have effective, descriptive comments that allows full comprehension of the programCorrectnessThe segmentation and statistics function is coded correctlyEither the segmentation or statistics function is coded correctlyBoth the segmentation and statistics function is not properly coded, there is logic missing.Advanced Knowledge
+(Extra Credit)If you are able to recreate both my .p functionsIf you are able to recreate one of my .p functionsYou were not able to recreate neither of my .p functions
+1 point deduction if the function is incorrectly named
+
+
+
+
+
+
+
+
+
+
+
+Report
+ 210.50Completion The report has all required sections and discussion points. The report has half to almost all required sections and discussion points. The report has less than half of the required sections and discussion pointsClarity of CommunicationThe report demonstrates the full comprehension of the machine learning and color-based technique for segmentation and how to analyze the results. The report demonstrates the moderate comprehension of the techniques and how to conduct an experiment design The report demonstrates little to no comprehension of the techniques and little to no comprehension on experiment designsVisual QualityThe report is visually appealing, and it is clear to find all sections and discussion points. The report is somewhat visually appealing and it is sometimes unclear in finding the discussion points. The report is not appealing and has no section headers or indicatorsFigures and TablesAll figures and tables are neatly presented with captions and numberingHalf to almost all figures and tables are neatly presented with captions and numberingLess than half of the figures and tables are not properly presentedResult InterpretationPresents a full correct interpretation of the results. Able to describe and synthesize the results 
+Somewhat a full correct interpretation of the results. Able to describe but not synthesize the results 
+An attempt is given but it is not correct.No description or synthesis of the results are givenAdvanced Discussion (Extra Credit)Does additional, correct analysis for 2 additional diseasesDoes additional, correct analysis for 1 additional disease.No additional diseases were analyzed1 point deduction if the file name is incorrectly named 
+1 point deduction if the file type is incorrect
+
